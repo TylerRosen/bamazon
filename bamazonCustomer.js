@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'root',
+  password: 'raiders76',
   database: 'bamazon_db'
 });
 
@@ -14,12 +14,14 @@ connection.connect();
 connection.query('SELECT * from products', function (error, results, fields) {
   if (error) throw error;
   console.log('Products for sale : ');
+  console.log("\n");
 
   for (i = 0; i < results.length; i++) {
     console.log(results[i].id + ". " + results[i].product_name + ": $" + results[i].price);
-    console.log("\n");
 
   };
+
+  console.log("\n");
 
   purchase();
 });
