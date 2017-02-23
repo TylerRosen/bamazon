@@ -3,27 +3,26 @@ var inquirer = require('inquirer');
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'bamazon_db'
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'bamazon_db'
 });
 
 connection.connect();
 
 connection.query('SELECT * from products', function (error, results, fields) {
-    if (error) throw error;
-    console.log('Products for sale : ');
+  if (error) throw error;
+  console.log('Products for sale : ');
 
-    for (i = 0; i < results.length; i++) {
-        console.log(results[i].id + ". " + results[i].product_name + ": $" + results[i].price);
-    };
-
+  for (i = 0; i < results.length; i++) {
+    console.log(results[i].id + ". " + results[i].product_name + ": $" + results[i].price);
     console.log("\n");
 
-});
+  };
 
-purchase();
+  purchase();
+});
 
 
 
